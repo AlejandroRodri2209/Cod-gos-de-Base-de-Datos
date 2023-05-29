@@ -1,0 +1,115 @@
+public class Calculadora {
+    
+    public static final int ultimo_numero_cedula = 9;
+
+    public static double sumar(double num1, double num2, double num3, char operacion) throws Exception {
+        if (num1 == ultimo_numero_cedula) {
+            throw new Exception("No se puede utilizar " + num1 + " como primer número");
+        }
+        return num1 + num2 + num3;
+    }
+
+    public static double restar(double num1, double num2, double num3, char operacion) throws Exception {
+        if (num1 == ultimo_numero_cedula) {
+            throw new Exception("No se puede utilizar " + num1 + " como primer número");
+        }
+        return num1 - num2 - num3;
+    }
+
+    public static double multiplicar(double num1, double num2, double num3, char operacion) throws Exception {
+        if (num1 == ultimo_numero_cedula) {
+            throw new Exception("No se puede utilizar " + num1 + " como primer número");
+        }
+        return num1 * num2 * num3;
+    }
+
+    public static double dividir(double num1, double num2, double num3, char operacion) throws Exception {
+        if (num1 == ultimo_numero_cedula) {
+            throw new Exception("No se puede utilizar " + num1 + " como primer número");
+        }
+        if (num2 == 0) {
+            throw new Exception("No se puede dividir entre cero");
+        }
+        return num1 / num2 / num3;
+    }
+
+    public static double potencia(double num1, double num2, double num3, char operacion) throws Exception {
+        if (num1 == ultimo_numero_cedula) {
+            throw new Exception("No se puede utilizar " + num1 + " como primer número");
+        }
+        return Math.pow(num1, num2 + num3);
+    }
+
+    public static double raizCuadrada(double num1, double num2, double num3, char operacion) throws Exception {
+        if (num1 == ultimo_numero_cedula) {
+            throw new Exception("No se puede utilizar " + num1 + " como primer número");
+        }
+        if (num1 < 0) {
+            throw new Exception("No se puede calcular la raíz cuadrada de un número negativo");
+        }
+        return Math.sqrt(num1);
+    }
+}
+
+//////////////////////////////////////////////
+public class Main {
+
+    public static void main(String[] args) {
+        int num1 = 9;
+        int num2 = 2;
+        int num3 = 8;
+        char operacion = '+';
+
+        try {
+            double resultado = Calculadora.sumar(num1, num2, num3, operacion);
+            System.out.println(num1 + " " + operacion + " " + num2 + " " + operacion + " " + num3 + " = " + resultado);
+        } catch (Exception e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+
+        operacion = '-';
+
+        try {
+            double resultado = Calculadora.restar(num1, num2, num3, operacion);
+            System.out.println(num1 + " " + operacion + " " + num2 + " " + operacion + " " + num3 + " = " + resultado);
+        } catch (Exception e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+
+        operacion = '*';
+
+        try {
+            double resultado = Calculadora.multiplicar(num1, num2, num3, operacion);
+            System.out.println(num1 + " " + operacion + " " + num2 + " " + operacion + " " + num3 + " = " + resultado);
+        } catch (Exception e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+
+        operacion = '/';
+
+        try {
+            double resultado = Calculadora.dividir(num1, num2, num3, operacion);
+            System.out.println(num1 + " " + operacion + " " + num2 + " " + operacion + " " + num3 + " = " + resultado);
+        } catch (Exception e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+
+        operacion = '^';
+
+        try {
+            double resultado = Calculadora.potencia(num1, num2, num3, operacion);
+            System.out.println(num1 + " " + operacion + " " + num2 + " " + operacion + " " + num3 + " = " + resultado);
+        } catch (Exception e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+
+        try {
+            double resultado = Calculadora.raizCuadrada(num1, num2, num3, operacion);
+            System.out.println("La raíz cuadrada de " + num1 + " es " + resultado);
+        } catch (Exception e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+
+    }
+
+}
